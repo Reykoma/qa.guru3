@@ -19,6 +19,7 @@ public class RegistrationPage {
             lastNameInput = $("#lastName"),
             resultsTable = $(".table-responsive");
 
+
     // actions
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -48,5 +49,44 @@ public class RegistrationPage {
         resultsTable.$(byText(fieldName))
                 .parent().shouldHave(text(value));
         return this;
+    }
+
+    public void clickSubmit() {
+        $("#submit").click();
+    }
+
+    public void setStateAndCity(String state,String city) {
+        $("#state").scrollTo().click();
+        $("#stateCity-wrapper").$(byText(state)).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText(city)).click();
+    }
+
+    public void setAddress(String address) {
+        $("#currentAddress").setValue(address);
+    }
+
+    public void setPicture(String picture) {
+        $("#uploadPicture").uploadFromClasspath("img/" + picture);
+    }
+
+    public void setHobbies(String hobby) {
+        $("#hobbiesWrapper").$(byText(hobby)).click();
+    }
+
+    public void setSubjects(String subjects) {
+        $("#subjectsInput").setValue(subjects).pressEnter();
+    }
+
+    public void setNumber(String number) {
+        $("#userNumber").setValue(number);
+    }
+
+    public void setGender(String gender) {
+        $("#genterWrapper").$(byText(gender)).click();
+    }
+
+    public void setEmail(String email) {
+        $("#userEmail").setValue(email);
     }
 }
