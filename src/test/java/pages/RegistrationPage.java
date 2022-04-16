@@ -44,6 +44,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkForm(String fieldName, String value) {
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         resultsTable.$(byText(fieldName))
                 .parent().shouldHave(text(value));
         return this;
