@@ -24,24 +24,24 @@ public class RegistrationPage {
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         headerTitle.shouldHave(text("Student Registration Form"));
-
         return this;
     }
 
     public RegistrationPage setFirstName(String firstName) {
         firstNameInput.setValue(firstName);
-
         return this;
     }
 
-    public void setLastName(String lastName) {
+    public RegistrationPage setLastName(String lastName) {
         lastNameInput.setValue(lastName);
+        return this;
     }
 
 
-    public void setBirthDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
+        return this;
     }
 
     public RegistrationPage checkForm(String fieldName, String value) {
@@ -51,42 +51,53 @@ public class RegistrationPage {
         return this;
     }
 
-    public void clickSubmit() {
+    public RegistrationPage clickSubmit() {
         $("#submit").click();
+        return this;
     }
 
-    public void setStateAndCity(String state,String city) {
+    public RegistrationPage setStateAndCity(String state, String city) {
         $("#state").scrollTo().click();
         $("#stateCity-wrapper").$(byText(state)).click();
         $("#city").click();
         $("#stateCity-wrapper").$(byText(city)).click();
+        return this;
     }
 
-    public void setAddress(String address) {
+    public RegistrationPage setAddress(String address) {
         $("#currentAddress").setValue(address);
+        return this;
     }
 
-    public void setPicture(String picture) {
+    public RegistrationPage setPicture(String picture) {
         $("#uploadPicture").uploadFromClasspath("img/" + picture);
+        return this;
     }
 
-    public void setHobbies(String hobby) {
+    public RegistrationPage setHobbies(String hobby) {
         $("#hobbiesWrapper").$(byText(hobby)).click();
+        return this;
     }
 
-    public void setSubjects(String subjects) {
+    public RegistrationPage setSubjects(String subjects) {
         $("#subjectsInput").setValue(subjects).pressEnter();
+        return this;
     }
 
-    public void setNumber(String number) {
+    public RegistrationPage setNumber(String number) {
         $("#userNumber").setValue(number);
+        return this;
     }
 
-    public void setGender(String gender) {
+    public RegistrationPage setGender(String gender) {
         $("#genterWrapper").$(byText(gender)).click();
+        return this;
     }
 
-    public void setEmail(String email) {
+    public RegistrationPage setEmail(String email) {
         $("#userEmail").setValue(email);
+        return this;
+
+
     }
 }

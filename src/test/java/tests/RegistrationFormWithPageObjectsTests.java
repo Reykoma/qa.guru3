@@ -43,6 +43,4 @@ public class RegistrationFormWithPageObjectsTests {
                 .checkForm("Student Email", "alex1@egorov.com")
                 .checkForm("Gender", "Other");
     }
-
-
 }
