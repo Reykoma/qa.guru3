@@ -19,7 +19,6 @@ public class RegistrationPage {
             lastNameInput = $("#lastName"),
             resultsTable = $(".table-responsive");
 
-
     // actions
     public RegistrationPage openPage() {
         open("/automation-practice-form");

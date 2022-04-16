@@ -5,8 +5,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -14,6 +12,24 @@ public class RegistrationFormWithPageObjectsTests {
 
     RegistrationPage registrationPage = new RegistrationPage();
     String firstName = "Alex";
+    String lastName = "Egorov";
+    String email = "alex@egorov.com";
+    String gender = "Other";
+    String number = "1231231230";
+    String day = "30";
+    String month = "July";
+    String year = "2008";
+    String subject = "Math";
+    String hobbies = "Sports";
+    String picture = "1.png";
+    String address = "Some address 1";
+    String state = "NCR";
+    String city = "Noida";
+
+    String formName = "Student Name",
+            formEmail = "Student Email",
+            formGender = "Gender";
+
 
     @BeforeAll
     static void beforeAll() {
@@ -26,21 +42,21 @@ public class RegistrationFormWithPageObjectsTests {
     void successFillTest() {
         registrationPage.openPage()
                 .setFirstName(firstName)
-                .setLastName("Egorov")
-                .setEmail("alex@egorov.com")
-                .setGender("Other")
-                .setNumber("1231231230")
-                .setBirthDate("30", "July", "2008")
-                .setSubjects("Math")
-                .setHobbies("Sports")
-                .setPicture("1.png")
-                .setAddress("Some address 1")
-                .setStateAndCity("NCR", "Noida")
+                .setLastName(lastName)
+                .setEmail(email)
+                .setGender(gender)
+                .setNumber(number)
+                .setBirthDate(day, month, year)
+                .setSubjects(subject)
+                .setHobbies(hobbies)
+                .setPicture(picture)
+                .setAddress(address)
+                .setStateAndCity(state, city)
                 .clickSubmit();
 
         registrationPage
-                .checkForm("Student Name", firstName + " Egorov")
-                .checkForm("Student Email", "alex1@egorov.com")
-                .checkForm("Gender", "Other");
+                .checkForm(formName, firstName + " " + lastName)
+                .checkForm(formEmail, email)
+                .checkForm(formGender, gender);
     }
 }
